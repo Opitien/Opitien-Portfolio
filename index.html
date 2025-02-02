@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Opitieneddy">
+    <title>Home · Opitien's</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/img/favicon.png" type="image/x-icon" class="favicon" style="border-radius: 50%;">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        background-color: #f8f9fa; /* Light Gray */
+        color: #343a40; /* Dark Gray */
+      }
+      .navbar {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .navbar-nav {
+        margin-left: auto; /* Changed from margin-right to margin-left */
+      }
+      .navbar-nav .nav-item {
+        margin: 0 15px;
+      }
+      .navbar-nav .nav-link {
+        font-family: 'Pacifico', cursive;
+      }
+      .navbar-brand {
+        font-family: 'Pacifico', cursive;
+        font-size: 1.5rem;
+        margin-left: 20px;
+      }
+      .jumbotron {
+        background-color: #F0F0F0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+      .btn-primary {
+        background-color: #28a745; /* Bootstrap Green */
+        border-color: #28a745;
+      }
+      .btn-primary:hover {
+        background-color: #218838; /* Darker Green */
+        border-color: #218838;
+      }
+      .footer {
+        background-color: #343a40; /* Dark Gray */
+        height: auto;
+        padding: 20px 0;
+        width: 100%;
+      }
+      .social-icons img {
+        width: 40px;
+        height: 40px;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+      }
+      .social-icons img:hover,
+      .social-icons img:focus {
+        filter: grayscale(0%);
+      }
+      .profile-pic {
+        float: left;
+        margin-right: 20px;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        transition: transform 0.3s ease;
+      }
+      .profile-pic:hover {
+        transform: scale(1.1);
+      }
+      .favicon {
+        border-radius: 50%;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Pacifico', cursive;
+      }
+      p {
+        font-family: 'Roboto', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+        <img src="assets/img/logo_transparent.png" width="30" height="30" class="d-inline-block align-top" alt="Logo">
+        Opitien's
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="jumbotron mt-4">
+        <img src="path/to/profile-pic.jpg" alt="Profile Picture" class="profile-pic">
+        <h1 class="display">Hey, I'm Opitien Ejiro</h1>
+        <p class="lead">I am an aspiring front-end developer with a strong passion for creating intuitive and engaging user experiences. I am eager to grow my skills and bring my potential to life through hands-on projects and continuous learning in the field of web development.</p>
+        <hr class="my-4">
+        <p>Explore my projects and skills, and let’s collaborate to bring your ideas to life. I’m always excited to work on new challenges and deliver quality solutions in front-end development.</p>
+        <a class="btn btn-secondary btn-lg" href="projects.html" role="button">Learn more</a>
+      </div>
+    </div>
+    <div class="container text-center my-4 social-icons">
+      <a href="https://www.instagram.com" target="_blank" class="mx-2">
+        <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png" alt="Instagram">
+      </a>
+      <a href="https://www.twitter.com" target="_blank" class="mx-2">
+        <img src="https://img.icons8.com/fluent/48/000000/twitter.png" alt="Twitter">
+      </a>
+      <a href="https://www.github.com" target="_blank" class="mx-2">
+        <img src="https://img.icons8.com/fluent/48/000000/github.png" alt="GitHub">
+      </a>
+      <a href="https://www.linkedin.com" target="_blank" class="mx-2">
+        <img src="https://img.icons8.com/fluent/48/000000/linkedin.png" alt="LinkedIn">
+      </a>
+    </div>
+    <footer class="footer bg-dark text-white mt-auto py-3">
+      <div class="container text-center">
+        <span>&copy; Designed by Opitien @ 2025. All rights reserved.</span>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
