@@ -11,33 +11,46 @@
     <link rel="icon" href="assets/img/favicon.png" type="image/x-icon" class="favicon" style="border-radius: 50%;">
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+      :root {
+        --background-light: #f0f0f0;
+        --text-light: #333333;
+        --background-dark: #333333;
+        --text-dark: #f0f0f0;
+        --primary-color: #007bff;
+        --primary-color-dark: #0056b3;
+      }
       html, body {
         height: 100%;
         margin: 0;
         font-family: 'Roboto', sans-serif;
+        background: var(--background-light);
+        color: var(--text-light);
       }
       body {
         display: flex;
         flex-direction: column;
-        background-color: #f8f9fa; /* Light Gray */
-        color: #343a40; /* Dark Gray */
+        background: var(--background-light);
+        color: var(--text-light);
       }
       .navbar {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background: var(--background-dark);
       }
       .navbar-nav {
-        margin-left: auto; /* Changed from margin-right to margin-left */
+        margin-left: auto;
       }
       .navbar-nav .nav-item {
         margin: 0 15px;
       }
       .navbar-nav .nav-link {
         font-family: 'Pacifico', cursive;
+        color: var(--text-dark);
       }
       .navbar-brand {
         font-family: 'Pacifico', cursive;
         font-size: 1.5rem;
         margin-left: 20px;
+        color: var(--text-dark);
       }
       h1, h2, h3, h4, h5, h6 {
         font-family: 'Pacifico', cursive;
@@ -46,23 +59,24 @@
         font-family: 'Roboto', sans-serif;
       }
       .jumbotron {
-        background-color: #F0F0F0;
+        background-color: var(--text-dark);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
       }
       .btn-primary {
-        background-color: #28a745; /* Bootstrap Green */
-        border-color: #28a745;
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
       }
       .btn-primary:hover {
-        background-color: #218838; /* Darker Green */
-        border-color: #218838;
+        background-color: var(--primary-color-dark);
+        border-color: var(--primary-color-dark);
       }
       .footer {
-        background-color: #343a40; /* Dark Gray */
+        background: var(--background-dark); /* Dark grey background */
         height: auto;
-        padding: 20px 0;
+        padding: 20px 0; /* Adjusted padding to match index.html */
         width: 100%;
+        color: var(--text-dark); /* White text color */
       }
       .social-icons img {
         width: 40px;
@@ -84,6 +98,36 @@
       .form-container .form-group label {
         width: 100%;
       }
+      .dark-mode {
+        background: var(--background-dark);
+        color: var(--text-dark);
+      }
+      .dark-mode .navbar,
+      .dark-mode .footer {
+        background: var(--background-light);
+      }
+      .dark-mode .navbar-nav .nav-link,
+      .dark-mode .navbar-brand {
+        color: var(--text-light);
+      }
+      .dark-mode .jumbotron {
+        background-color: var(--text-light);
+      }
+      .dark-mode .footer {
+        background: var(--background-light); /* Light background in dark mode */
+        color: var(--text-light); /* Dark text color in dark mode */
+      }
+      .light-mode .footer {
+        background: var(--background-dark); /* Dark background in light mode */
+        color: var(--text-dark); /* Light text color in light mode */
+      }
+      .container {
+        /* max-width: 1200px; */ /* Removed max-width */
+      }
+      .jumbotron p {
+        max-width: 600px; /* Set max-width for paragraphs inside jumbotron */
+        margin: auto;
+      }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
     <script>
@@ -93,7 +137,7 @@
     </script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
       <a class="navbar-brand" href="#">
         <img src="assets/img/logo_transparent.png" width="30" height="30" class="d-inline-block align-top" alt="Logo">
         Opitien's
@@ -116,6 +160,9 @@
             <a class="nav-link" href="contact.html">Contact</a>
           </li>
         </ul>
+        <button id="darkModeToggle" class="btn btn-link nav-link" onclick="toggleDarkMode()">
+          <img id="darkModeIcon" src="https://img.icons8.com/ios-filled/24/000000/sun.png" alt="Toggle Dark Mode">
+        </button>
       </div>
     </nav>
     <div class="container">
@@ -146,20 +193,20 @@
       </div>
     </div>
     <div class="container text-center my-4 social-icons">
-      <a href="https://www.instagram.com" target="_blank" class="mx-2">
+      <a href="https://www.instagram.com/Opitieneddy.dev" target="_blank" class="mx-2">
         <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png" alt="Instagram">
       </a>
-      <a href="https://www.twitter.com" target="_blank" class="mx-2">
+      <a href="https://x.com/OpitienEdison" target="_blank" class="mx-2">
         <img src="https://img.icons8.com/fluent/48/000000/twitter.png" alt="Twitter">
       </a>
-      <a href="https://www.github.com" target="_blank" class="mx-2">
+      <a href="https://www.github.com/Opitieneddy.dev" target="_blank" class="mx-2">
         <img src="https://img.icons8.com/fluent/48/000000/github.png" alt="GitHub">
       </a>
-      <a href="https://www.linkedin.com" target="_blank" class="mx-2">
+      <a href="https://www.linkedin.com/Opitieneddy.dev" target="_blank" class="mx-2">
         <img src="https://img.icons8.com/fluent/48/000000/linkedin.png" alt="LinkedIn">
       </a>
     </div>
-    <footer class="footer bg-dark text-white mt-auto py-3">
+    <footer class="footer">
       <div class="container text-center">
         <span>&copy; Designed by Opitien @ 2025. All rights reserved. </span>
       </div>
@@ -188,6 +235,25 @@
             });
         });
       });
+      document.addEventListener('DOMContentLoaded', (event) => {
+        if (localStorage.getItem('darkMode') === 'enabled') {
+          document.body.classList.add('dark-mode');
+          document.getElementById('darkModeIcon').src = 'https://img.icons8.com/ios-filled/24/000000/moon-symbol.png';
+        }
+      });
+
+      function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        const icon = document.getElementById('darkModeIcon');
+        if (document.body.classList.contains('dark-mode')) {
+          icon.src = 'https://img.icons8.com/ios-filled/24/000000/moon-symbol.png';
+          localStorage.setItem('darkMode', 'enabled');
+        } else {
+          icon.src = 'https://img.icons8.com/ios-filled/24/000000/sun.png';
+          localStorage.setItem('darkMode', 'disabled');
+        }
+      }
     </script>
+    <script src="script.js"></script>
   </body>
 </html>
