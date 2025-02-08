@@ -1,41 +1,51 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-  // Add animation to profile picture
-  const profilePic = document.querySelector('.profile-pic');
-  if (profilePic) {
-    profilePic.addEventListener('mouseover', () => {
-      profilePic.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
-      profilePic.style.transform = 'scale(1.1)';
-      profilePic.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.5)';
-    });
-    profilePic.addEventListener('mouseout', () => {
-      profilePic.style.transform = 'scale(1)';
-      profilePic.style.boxShadow = 'none';
+  // Function to add hover animation
+  function addHoverAnimation(elements, scale, filter = null, boxShadow = null) {
+    elements.forEach(element => {
+      element.addEventListener('mouseover', () => {
+        element.style.transition = 'transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease';
+        element.style.transform = `scale(${scale})`;
+        if (filter) element.style.filter = filter;
+        if (boxShadow) element.style.boxShadow = boxShadow;
+      });
+      element.addEventListener('mouseout', () => {
+        element.style.transform = 'scale(1)';
+        if (filter) element.style.filter = 'grayscale(100%)';
+        if (boxShadow) element.style.boxShadow = 'none';
+      });
     });
   }
 
+  // Add animation to profile picture
+  const profilePic = document.querySelector('.profile-pic');
+  if (profilePic) addHoverAnimation([profilePic], 1.1, null, '0 4px 15px rgba(0, 0, 0, 0.5)');
+
   // Add animation to social icons
   const socialIcons = document.querySelectorAll('.social-icons img');
-  socialIcons.forEach(icon => {
-    icon.addEventListener('mouseover', () => {
-      icon.style.transition = 'transform 0.3s ease, filter 0.3s ease';
-      icon.style.transform = 'scale(1.2)';
-      icon.style.filter = 'grayscale(0%)';
-    });
-    icon.addEventListener('mouseout', () => {
-      icon.style.transform = 'scale(1)';
-      icon.style.filter = 'grayscale(100%)';
-    });
-  });
+  addHoverAnimation(socialIcons, 1.2, 'grayscale(0%)');
 
   // Add animation to buttons
   const buttons = document.querySelectorAll('.btn');
-  buttons.forEach(button => {
-    button.addEventListener('mouseover', () => {
-      button.style.transition = 'transform 0.3s ease';
-      button.style.transform = 'scale(1.1)';
-    });
-    button.addEventListener('mouseout', () => {
-      button.style.transform = 'scale(1)';
-    });
-  });
+  addHoverAnimation(buttons, 1.1);
+
+  // Dark mode toggle functionality
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const darkModeIcon = document.getElementById('darkModeIcon');
+  const body = document.body;
+
+  function toggleDarkMode() {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+      darkModeIcon.src = 'https://img.icons8.com/ios-filled/24/000000/moon-symbol.png';
+    } else {
+      darkModeIcon.src = 'https://img.icons8.com/ios-filled/24/000000/sun.png';
+    }
+    console.log('Dark mode toggled:', body.classList.contains('dark-mode'));
+  }
+
+  if (darkModeToggle && darkModeIcon) {
+    darkModeToggle.addEventListener('click', toggleDarkMode);
+  } else {
+    console.error('Dark mode toggle or icon not found');
+  }
 });
