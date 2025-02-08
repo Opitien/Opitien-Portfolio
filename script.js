@@ -27,25 +27,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
   // Add animation to buttons
   const buttons = document.querySelectorAll('.btn');
   addHoverAnimation(buttons, 1.1);
-
-  // Dark mode toggle functionality
-  const darkModeToggle = document.getElementById('darkModeToggle');
-  const darkModeIcon = document.getElementById('darkModeIcon');
-  const body = document.body;
-
-  function toggleDarkMode() {
-    body.classList.toggle('dark-mode');
-    if (body.classList.contains('dark-mode')) {
-      darkModeIcon.src = 'https://img.icons8.com/ios-filled/24/000000/moon-symbol.png';
-    } else {
-      darkModeIcon.src = 'https://img.icons8.com/ios-filled/24/000000/sun.png';
-    }
-    console.log('Dark mode toggled:', body.classList.contains('dark-mode'));
-  }
-
-  if (darkModeToggle && darkModeIcon) {
-    darkModeToggle.addEventListener('click', toggleDarkMode);
-  } else {
-    console.error('Dark mode toggle or icon not found');
-  }
 });

@@ -58,7 +58,7 @@
       }
       .btn-primary {
         background-color: var(--primary-color);
-        border-color: var(--primary-color);
+        border-color: var (--primary-color);
       }
       .btn-primary:hover {
         background-color: var(--primary-color-dark);
@@ -101,29 +101,6 @@
       p {
         font-family: 'Roboto', sans-serif;
       }
-      .dark-mode {
-        background: var(--background-dark);
-        color: var(--text-dark);
-      }
-      .dark-mode .navbar,
-      .dark-mode .footer {
-        background: var(--background-light);
-      }
-      .dark-mode .navbar-nav .nav-link,
-      .dark-mode .navbar-brand {
-        color: var(--text-light);
-      }
-      .dark-mode .jumbotron {
-        background-color: var(--text-light);
-      }
-      .dark-mode .footer {
-        background: var(--background-light); /* Light background in dark mode */
-        color: var(--text-light); /* Dark text color in dark mode */
-      }
-      .light-mode .footer {
-        background: var(--background-dark); /* Dark background in light mode */
-        color: var(--text-dark); /* Light text color in light mode */
-      }
       .container {
         /* max-width: 1200px; */ /* Removed max-width */
       }
@@ -140,7 +117,6 @@
         gap: 10px;
       }
     </style>
-    <script src="dark-mode.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -166,9 +142,6 @@
             <a class="nav-link" href="contact.html">Contact</a>
           </li>
         </ul>
-        <button id="darkModeToggle" class="btn btn-link nav-link" onclick="toggleDarkMode()">
-          <img id="darkModeIcon" src="https://img.icons8.com/ios-filled/24/000000/sun.png" alt="Toggle Dark Mode">
-        </button>
       </div>
     </nav>
     <div class="container">
