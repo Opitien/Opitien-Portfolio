@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="Opitieneddy">
     <title> Projects ·Opitien's </title>
-    <!-- Bootstrap core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/img/favicon.png" type="image/x-icon" class="favicon" style="border-radius: 50%;">
@@ -43,7 +42,7 @@
         background: var(--background-dark);
       }
       .navbar-nav {
-        margin-left: auto; /* Changed from margin-right to margin-left */
+        margin-left: auto;
       }
       .navbar-nav .nav-item {
         margin: 0 15px;
@@ -53,24 +52,24 @@
         color: var(--text-dark);
       }
       .jumbotron {
-        background-color: var(--text-dark); /* White background */
+        background-color: var(--text-dark);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
       }
       .btn-primary {
-        background-color: var(--primary-color); /* Bootstrap Blue */
+        background-color: var(--primary-color);
         border-color: var(--primary-color);
       }
       .btn-primary:hover {
-        background-color: var(--primary-color-dark); /* Darker Blue */
+        background-color: var(--primary-color-dark);
         border-color: var(--primary-color-dark);
       }
       .footer {
-        background: var(--background-dark); /* Dark grey background */
+        background: var(--background-dark);
         height: auto;
-        padding: 20px 0; /* Adjusted padding to match index.html */
+        padding: 20px 0;
         width: 100%;
-        color: var(--text-dark); /* White text color */
+        color: var(--text-dark);
       }
       .social-icons img {
         width: 40px;
@@ -84,10 +83,10 @@
       }
       .carousel-item img {
         width: 100%;
-        height: 400px; /* Set a fixed height */
-        object-fit: cover; /* Ensure the image covers the area */
+        height: 400px;
+        object-fit: cover;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border-radius: 5px; /* Make the image rounded */
+        border-radius: 5px;
       }
       .carousel-item img:hover {
         transform: scale(1.05);
@@ -96,10 +95,9 @@
       .container {
         margin: 20px auto;
         padding: 20px;
-        /* max-width: 1200px; */ /* Removed max-width */
       }
       .jumbotron p {
-        max-width: 600px; /* Set max-width for paragraphs inside jumbotron */
+        max-width: 600px;
         margin: auto;
       }
       .carousel-inner {
@@ -114,6 +112,21 @@
       }
       .favicon {
         border-radius: 50%;
+      }
+      .page-transition {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--background-dark);
+        z-index: 9999;
+        opacity: 1;
+        transition: opacity 0.5s ease;
+        pointer-events: none; /* Ensure it does not block interactions */
+      }
+      .page-transition.fade-out {
+        opacity: 0;
       }
     </style>
   </head>
@@ -196,16 +209,16 @@
       </div>
     </div>
     <div class="container text-center my-4 social-icons">
-      <a href="https://www.instagram.com/Opitieneddy.dev" target="_blank" class="mx-2">
+      <a href="https://www.instagram.com/opitienedison/" target="_blank" class="mx-2">
         <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png" alt="Instagram">
       </a>
-      <a href="https://x.com/OpitienEdison" target="_blank" class="mx-2">
+      <a href="https://x.com/opitienedison" target="_blank" class="mx-2">
         <img src="https://img.icons8.com/fluent/48/000000/twitter.png" alt="Twitter">
       </a>
-      <a href="https://www.github.com/Opitieneddy.dev" target="_blank" class="mx-2">
+      <a href="https://www.github.com/Opitien" target="_blank" class="mx-2">
         <img src="https://img.icons8.com/fluent/48/000000/github.png" alt="GitHub">
       </a>
-      <a href="https://www.linkedin.com/Opitieneddy.dev" target="_blank" class="mx-2">
+      <a href="https://www.linkedin.com/in/opitien" target="_blank" class="mx-2">
         <img src="https://img.icons8.com/fluent/48/000000/linkedin.png" alt="LinkedIn">
       </a>
     </div>
@@ -214,10 +227,32 @@
         <span>&copy; Designed by Opitien @ 2025. All rights reserved.</span>
       </div>
     </footer>
-    <!-- Bootstrap JS and dependencies CDN -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const transitionElement = document.createElement('div');
+        transitionElement.classList.add('page-transition');
+        document.body.appendChild(transitionElement);
+
+        setTimeout(() => {
+          transitionElement.classList.add('fade-out');
+        }, 500);
+
+        document.querySelectorAll('a').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            if (anchor.href.startsWith(window.location.origin)) {
+              e.preventDefault();
+              transitionElement.classList.remove('fade-out');
+              setTimeout(() => {
+                window.location.href = anchor.href;
+              }, 500);
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
